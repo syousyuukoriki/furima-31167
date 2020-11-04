@@ -23,44 +23,45 @@
 
 | column                | Type         | Options                       |
 | --------------------- | ------------ | ----------------------------- |
-| item_name             | text         | null: false                   |
-| introduction          | string       | null: false                   |
+| item_name             | string       | null: false                   |
+| introduction          | text         | null: false                   |
 | category              | string       | null: false                   |
-| item_condition        | string       | null: false                   |
+| item_condition        | integer      | null: false                   |
 | price                 | integer      | null: false                   |
 | shipping_cost         | integer      | null: false                   |
-| area                  | string       | null: false                   |
+| area                  | integer      | null: false                   |
 | days                  | integer      | null: false                   |
-| user_id               | references   | foreign_key: true             |
+| user                  | references   | foreign_key: true             |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :buy
+- has_one :buy
 
 ## buys テーブル
 
 | column                | Type         | Options                       |
 | --------------------- | ------------ | ----------------------------- |
-| user_id               | references   | foreign_key: true             |
-| item_id               | references   | foreign_key: true             |
+| user                  | references   | foreign_key: true             |
+| item                  | references   | foreign_key: true             |
 
 ### Association
 
 - belongs_to :user
-- has_many :items
+- belongs_to :item
 - has_one :destination
 
 ## destinations テーブル
 
 | column                | Type         | Options                       |
 | --------------------- | ------------ | ----------------------------- |
-| postal_code           | integer      | null: false                   |
+| postal_code           | string       | null: false                   |
 | prefecture            | string       | null: false                   |
 | city                  | string       | null: false                   |
 | address               | string       | null: false                   |
-| phone_number          | integer      | null: false                   |
-| buy_id                | references   | foreign_key: true             |
+| building_name         | string       | null: false                   |
+| phone_number          | string       | null: false                   |
+| buy                   | references   | foreign_key: true             |
 
 ### Association
 - belongs_to :buy
