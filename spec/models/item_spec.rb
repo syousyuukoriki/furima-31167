@@ -85,31 +85,31 @@ RSpec.describe Item, type: :model do
     it 'category_idの値が1だと保存できない' do
       @item.category_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Category must be other than 1")
+      expect(@item.errors.full_messages).to include('Category must be other than 1')
     end
 
     it 'item_condition_idの値が1だと保存できない' do
       @item.item_condition_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Item condition must be other than 1")
+      expect(@item.errors.full_messages).to include('Item condition must be other than 1')
     end
 
     it 'shipping_cost_idの値が1だと保存できない' do
       @item.shipping_cost_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Shipping cost must be other than 1")
+      expect(@item.errors.full_messages).to include('Shipping cost must be other than 1')
     end
 
     it 'days_idの値が1だと保存できない' do
       @item.days_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include("Days must be other than 1")
+      expect(@item.errors.full_messages).to include('Days must be other than 1')
     end
 
     it 'area_idの値が0だと保存できない' do
       @item.area_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include("Area must be other than 0")
+      expect(@item.errors.full_messages).to include('Area must be other than 0')
     end
   end
 end
