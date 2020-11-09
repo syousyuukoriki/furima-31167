@@ -18,7 +18,6 @@ class Item < ApplicationRecord
     validates :shipping_cost_id,   numericality: { other_than: 1 }
     validates :area_id,            numericality: { other_than: 0 }
     validates :days_id,            numericality: { other_than: 1 }
-    validates :user
     validates :image
   end
 end
