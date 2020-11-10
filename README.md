@@ -29,7 +29,7 @@
 | price                 | integer      | null: false                   |
 | shipping_cost_id      | integer      | null: false                   |
 | area_id               | integer      | null: false                   |
-| days_id               | integer      | null: false                   |
+| day_id                | integer      | null: false                   |
 | user                  | references   | foreign_key: true             |
 
 ### Association
