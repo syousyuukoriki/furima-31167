@@ -6,7 +6,7 @@ RSpec.describe Item, type: :model do
       @item = FactoryBot.build(:item)
     end
 
-    it 'item_nameとintroductionとcategory_idとitem_condition_idとpriceとshipping_cost_idとarea_idとdays_idとimageが存在すれば保存できる' do
+    it 'item_nameとintroductionとcategory_idとitem_condition_idとpriceとshipping_cost_idとarea_idとday_idとimageが存在すれば保存できる' do
       expect(@item).to be_valid
     end
 
@@ -52,10 +52,10 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Area can't be blank")
     end
 
-    it 'days_idが空では保存できないこと' do
-      @item.days_id = nil
+    it 'day_idが空では保存できないこと' do
+      @item.day_id = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("Days can't be blank")
+      expect(@item.errors.full_messages).to include("Day can't be blank")
     end
 
     it 'imageが空では保存できないこと' do
@@ -100,10 +100,10 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include('Shipping cost must be other than 1')
     end
 
-    it 'days_idの値が1だと保存できない' do
-      @item.days_id = 1
+    it 'day_idの値が1だと保存できない' do
+      @item.day_id = 1
       @item.valid?
-      expect(@item.errors.full_messages).to include('Days must be other than 1')
+      expect(@item.errors.full_messages).to include('Day must be other than 1')
     end
 
     it 'area_idの値が0だと保存できない' do
