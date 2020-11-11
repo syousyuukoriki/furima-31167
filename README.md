@@ -10,7 +10,7 @@
 | family_name           | string       | null: false                   |
 | first_name            | string       | null: false                   |
 | family_name_kana      | string       | null: false                   |
-| first_name_kana       | string        | null: false                   |
+| first_name_kana       | string        | null: false                  |
 | birth_day             | date         | null: false                   |
 
 ### Association
@@ -37,7 +37,7 @@
 - belongs_to :user
 - has_one :buy
 
-## buys テーブル
+## orders テーブル
 
 | column                | Type         | Options                       |
 | --------------------- | ------------ | ----------------------------- |
@@ -60,7 +60,7 @@
 | address               | string       | null: false                   |
 | building_name         | string       |                               |
 | phone_number          | string       | null: false                   |
-| buy                   | references   | foreign_key: true             |
+| order                 | references   | foreign_key: true             |
 
 ### Association
-- belongs_to :buy
+- belongs_to :order
