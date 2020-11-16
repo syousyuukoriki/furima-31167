@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+  
+  before_action :authenticate_user!, only: [:index]
+  before_action :move_to_index, only: [:index]
 
   def index
    @order_destination = OrderDestination.new
@@ -21,6 +24,15 @@ class OrdersController < ApplicationController
     def destination_params
       params.require(:order_destination).permit(:postal_code, :prefecture_id, :city, :address, :building_name, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
     end 
+
+    def move_to_index
+      @item = Item.find(params[:item_id])
+      redirect_to root_path  unless @item.order.nil?
+
+      if current_user.id == @item.user.id
+        redirect_to root_path
+      end
+    end
 
     def pay_item
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
