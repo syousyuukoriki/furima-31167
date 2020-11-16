@@ -63,6 +63,12 @@ RSpec.describe OrderDestination, type: :model do
       expect(@order_destination.errors.full_messages).to include("Phone number is invalid")
     end
 
+    it 'phone_numberが12文字以上では保存できないこと' do
+      @order_destination.phone_number = "123456789012"
+      @order_destination.valid?
+      expect(@order_destination.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+    end
+
     it "tokenが空では登録できないこと" do
       @order_destination.token = nil
       @order_destination.valid?
